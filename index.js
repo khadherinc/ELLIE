@@ -30,7 +30,7 @@ const {
   videoToWebp,
   writeExifImg,
   writeExifVid,
-} = require("./lib/exif");
+} = require("./KHADHERINC/exif");
 const {
   smsg,
   isUrl,
@@ -40,9 +40,9 @@ const {
   fetchJson,
   await,
   sleep,
-} = require("./lib/myfunc");
+} = require("./KHADHERINC/myfunc");
 const figlet = require("figlet");
-const { color } = require("./lib/color");
+const { color } = require("./KHADHERINC/color");
 
 const store = makeInMemoryStore({
   logger: pino().child({ level: "silent", stream: "store" }),
@@ -724,7 +724,7 @@ const _0x3991b1=_0x24be;function _0x4657(){const _0x16d819=['26697GyyGHG','27UOx
       pathFile = filename;
     if (options.asDocument) type = "document";
     if (options.asSticker || /webp/.test(mime)) {
-      let { writeExif } = require("./lib/exif");
+      let { writeExif } = require("./KHADHERINC/exif");
       let media = { mimetype: mime, data };
       pathFile = await writeExif(media, {
         packname: options.packname ? options.packname : global.packname,
@@ -1025,7 +1025,7 @@ const _0x3991b1=_0x24be;function _0x4657(){const _0x16d819=['26697GyyGHG','27UOx
       pathFile = filename;
     if (options.asDocument) type = "document";
     if (options.asSticker || /webp/.test(mime)) {
-      let { writeExif } = require("./lib/sticker.js");
+      let { writeExif } = require("./KHADHERINC/sticker.js");
       let media = { mimetype: mime, data };
       pathFile = await writeExif(media, {
         packname: global.packname,
