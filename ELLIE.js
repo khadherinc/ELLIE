@@ -11,8 +11,8 @@ const axios = require('axios');
 const { spawn, exec, execSync } = require("child_process");
 const moment = require("moment-timezone");
 const { EmojiAPI } = require("emoji-api");
-const { addBalance } = require("./lib/limit.js");
-const { smsg, formatp, tanggal, GIFBufferToVideoBuffer, formatDate, getTime, isUrl, sleep, clockString, runtime, fetchJson, getBuffer, jsonformat, format, parseMention, getRandom, fetchBuffer } = require('./lib/myfunc')
+const { addBalance } = require("./KHADHERINC/limit.js");
+const { smsg, formatp, tanggal, GIFBufferToVideoBuffer, formatDate, getTime, isUrl, sleep, clockString, runtime, fetchJson, getBuffer, jsonformat, format, parseMention, getRandom, fetchBuffer } = require('./KHADHERINC/myfunc')
 const _ = require("lodash");
 const yargs = require("yargs/yargs");
 const kaitime = moment.tz('Asia/Dhaka').format('HH:mm:ss');
@@ -31,13 +31,13 @@ const thiccysapi = require('textmaker-thiccy');
 const maker = require('mumaker');
 const Jimp = require('jimp');  // for full dp etc.
 const modapk = require("tod-api");
-const { hentai } = require('./lib/scraper2.js');
-const { instadl } = require('./lib/instadl');
+const { hentai } = require('./KHADHERINC/scraper2.js');
+const { instadl } = require('./KHADHERINC/instadl');
 const ty = eco.connect('mongodb+srv://profilecorrupted:error@xlicon0.y5mucan.mongodb.net/?retryWrites=true&w=majority');
-const { isLimit, limitAdd, getLimit, giveLimit, kurangBalance, getBalance, isGame, gameAdd, givegame, cekGLimit } = require('./lib/limit.js');
-const githubstalk = require('./lib/githubstalk');
-let { covid } = require('./lib/covid.js');
-const { Gempa } = require("./lib/gempa.js");
+const { isLimit, limitAdd, getLimit, giveLimit, kurangBalance, getBalance, isGame, gameAdd, givegame, cekGLimit } = require('./KHADHERINC/limit.js');
+const githubstalk = require('./KHADHERINC/githubstalk');
+let { covid } = require('./KHADHERINC/covid.js');
+const { Gempa } = require("./KHADHERINC/gempa.js");
 
 const spaceemojis = ["🌌", "🌠", "🚀", "🪐", "🌟"];     // list of emojis for Space CMDs.
 const manyemojis = ["😄", "👍", "👏", "👌", "🥇", "🌟", "🎉", "🙌", "🤩", "💯", "🔥", "✨", "🚀", "💖", "🌈", "🌞", "🌠", "🌼", "💪", "😎", "💫", "💓", "🎈", "🎁", "🍾", "🎊", "🥳", "👑", "🌺", "🌻", "🌸"];
@@ -138,11 +138,11 @@ var low;
 try {
   low = require("lowdb");
 } catch (e) {
-  low = require("./lib/lowdb");
+  low = require("./KHADHERINC/lowdb");
 }
 
 const { Low, JSONFile } = low;
-const mongoDB = require("./lib/mongoDB");
+const mongoDB = require("./KHADHERINC/mongoDB");
 
 global.opts = new Object(
   yargs(process.argv.slice(2)).exitProcess(false).parse()
@@ -184,7 +184,7 @@ global.loadDatabase = async function loadDatabase() {
   global.db.chain = _.chain(global.db.data);
 };
 loadDatabase();
-global.db = JSON.parse(fs.readFileSync("./src/database.json"));
+global.db = JSON.parse(fs.readFileSync("./KHADHERINC-SOURCE/database.json"));
 if (global.db)
   global.db = {
     sticker: {},
@@ -199,38 +199,38 @@ if (global.db)
 
 //
 let isSleeping = false; // Move the declaration here.
-let banUser = JSON.parse(fs.readFileSync('./database/banUser.json'));
-let banchat = JSON.parse(fs.readFileSync('./database/banChat.json'));
-let kaiaudio = JSON.parse(fs.readFileSync('./Media-Database/audio.json'));
-let _limit = JSON.parse(fs.readFileSync('./storage/user/limit.json'));
-let _buruan = JSON.parse(fs.readFileSync('./storage/user/bounty.json'));
-let _darahOrg = JSON.parse(fs.readFileSync('./storage/user/blood.json'))
+let banUser = JSON.parse(fs.readFileSync('./KHADHERINC-DATABASE/banUser.json'));
+let banchat = JSON.parse(fs.readFileSync('./KHADHERINC-DATABASE/banChat.json'));
+let kaiaudio = JSON.parse(fs.readFileSync('./KHADHERINC-MEDIA-DATABASE/audio.json'));
+let _limit = JSON.parse(fs.readFileSync('./KHADHERINC-STORAGE/user/limit.json'));
+let _buruan = JSON.parse(fs.readFileSync('./KHADHERINC-STORAGE/user/bounty.json'));
+let _darahOrg = JSON.parse(fs.readFileSync('./KHADHERINC-STORAGE/user/blood.json'))
 
-let ntwame = JSON.parse(fs.readFileSync('./database/antiwame.json'))
-let ntlinkgc = JSON.parse(fs.readFileSync('./database/antilinkgc.json'))
-let ntilinkall = JSON.parse(fs.readFileSync('./database/antilinkall.json'))
-let ntilinktwt = JSON.parse(fs.readFileSync('./database/antilinktwitter.json'))
-let ntilinktt = JSON.parse(fs.readFileSync('./database/antilinktiktok.json'))
-let ntilinktg = JSON.parse(fs.readFileSync('./database/antilinktelegram.json'))
-let ntilinkfb = JSON.parse(fs.readFileSync('./database/antilinkfacebook.json'))
-let ntilinkig = JSON.parse(fs.readFileSync('./database/antilinkinstagram.json'))
-let ntilinkytch = JSON.parse(fs.readFileSync('./database/antilinkytchannel.json'))
-let ntilinkytvid = JSON.parse(fs.readFileSync('./database/antilinkytvideo.json'))
+let ntwame = JSON.parse(fs.readFileSync('./KHADHERINC-DATABASE/antiwame.json'))
+let ntlinkgc = JSON.parse(fs.readFileSync('./KHADHERINC-DATABASE/antilinkgc.json'))
+let ntilinkall = JSON.parse(fs.readFileSync('./KHADHERINC-DATABASE/antilinkall.json'))
+let ntilinktwt = JSON.parse(fs.readFileSync('./KHADHERINC-DATABASE/antilinktwitter.json'))
+let ntilinktt = JSON.parse(fs.readFileSync('./KHADHERINC-DATABASE/antilinktiktok.json'))
+let ntilinktg = JSON.parse(fs.readFileSync('./KHADHERINC-DATABASE/antilinktelegram.json'))
+let ntilinkfb = JSON.parse(fs.readFileSync('./KHADHERINC-DATABASE/antilinkfacebook.json'))
+let ntilinkig = JSON.parse(fs.readFileSync('./KHADHERINC-DATABASE/antilinkinstagram.json'))
+let ntilinkytch = JSON.parse(fs.readFileSync('./KHADHERINC-DATABASE/antilinkytchannel.json'))
+let ntilinkytvid = JSON.parse(fs.readFileSync('./KHADHERINC-DATABASE/antilinkytvideo.json'))
 
-let pendaftar = JSON.parse(fs.readFileSync('./storage/user/user.json'))
-let balance = JSON.parse(fs.readFileSync('./database/balance.json'))
-let ssewa = JSON.parse(fs.readFileSync('./database/sewa.json'))
-let ban = JSON.parse(fs.readFileSync('./database/ban.json'))
-let autosticker = JSON.parse(fs.readFileSync('./database/autosticker.json'))
-const _autostick = JSON.parse(fs.readFileSync('./database/autostickpc.json'))
-let limit = JSON.parse(fs.readFileSync('./database/limit.json'))
-let setik = JSON.parse(fs.readFileSync('./src/sticker.json'))
-let vien = JSON.parse(fs.readFileSync('./src/audio.json'))
-let imagi = JSON.parse(fs.readFileSync('./src/image.json'))
-let videox = JSON.parse(fs.readFileSync('./src/video.json'))
-global.db = JSON.parse(fs.readFileSync('./src/database.json'))
-let _sewa = require("./lib/sewa");
-const sewa = JSON.parse(fs.readFileSync('./database/sewa.json'))
+let pendaftar = JSON.parse(fs.readFileSync('./KHADHERINC-STORAGE/user/user.json'))
+let balance = JSON.parse(fs.readFileSync('./KHADHERINC-DATABASE/balance.json'))
+let ssewa = JSON.parse(fs.readFileSync('./KHADHERINC-DATABASE/sewa.json'))
+let ban = JSON.parse(fs.readFileSync('./KHADHERINC-DATABASE/ban.json'))
+let autosticker = JSON.parse(fs.readFileSync('./KHADHERINC-DATABASE/autosticker.json'))
+const _autostick = JSON.parse(fs.readFileSync('./KHADHERINC-DATABASE/autostickpc.json'))
+let limit = JSON.parse(fs.readFileSync('./KHADHERINC-DATABASE/limit.json'))
+let setik = JSON.parse(fs.readFileSync('./KHADHERINC-SOURCE/sticker.json'))
+let vien = JSON.parse(fs.readFileSync('./KHADHERINC-SOURCE/audio.json'))
+let imagi = JSON.parse(fs.readFileSync('./KHADHERINC-SOURCE/image.json'))
+let videox = JSON.parse(fs.readFileSync('./KHADHERINC-SOURCE/video.json'))
+global.db = JSON.parse(fs.readFileSync('./KHADHERINC-SOURCE/database.json'))
+let _sewa = require("./KHADHERINC/sewa");
+const sewa = JSON.parse(fs.readFileSync('./KHADHERINC-DATABASE/sewa.json'))
 const time = moment.tz('Asia/Dhaka').format('DD/MM HH:mm:ss')
 const ucap = moment(Date.now()).tz('Asia/Dhaka').locale('id').format('a')
 var buln = ['/01/', '/02/', '/03/', '/04/', '/05/', '/06/', '/07/', '/08/', '/09/', '/10/', '/11/', '/12/'];
@@ -348,7 +348,7 @@ module.exports = A17 = async (A17, m, chatUpdate, store) => {
 
     if (isCmd && !isUser) {
       pendaftar.push(m.sender);
-      fs.writeFileSync("./storage/user/user.json", JSON.stringify(pendaftar));
+      fs.writeFileSync("./KHADHERINC-STORAGE/user/user.json", JSON.stringify(pendaftar));
     }
 
     if (global.autoreadpmngc) {
@@ -1082,7 +1082,7 @@ A17.sendMessage(from, { react: { text: '❤', key: m.key }});
   if (isBanChat) return reply(mess.banChat)
   A17.sendMessage(from, { react: { text: "🎮" , key: m.key }})
 
-      let TicTacToe = require("./lib/tictactoe")
+      let TicTacToe = require("./KHADHERINC/tictactoe")
       this.game = this.game ? this.game : {}
       if (Object.values(this.game).find(room => room.id.startsWith('tictactoe') && [room.game.playerX, room.game.playerO].includes(m.sender))) return reply(`${pushname} You Are Still In The Game...`)
       let room = Object.values(this.game).find(room => room.state === 'WAITING' && (text ? room.name === text : true))
@@ -1771,7 +1771,7 @@ break;
             if (isBan) return reply(mess.banned);	 			
           if (isBanChat) return reply(mess.bangc);
                           if (!args.join(" ")) return reply("What picture are you looking for??")
-              let { wikimedia } = require('./lib/scraper')
+              let { wikimedia } = require('./KHADHERINC/scraper')
                   anu = await wikimedia(args)
                   hasil = anu[Math.floor(Math.random() * anu.length)]
                   let buttons = [
@@ -1799,7 +1799,7 @@ break;
           
           
           case 'quotesanime': case 'quoteanime': case 'animequote': case 'animequotes':{
-              let { quotesAnime } = require('./lib/scraper')
+              let { quotesAnime } = require('./KHADHERINC/scraper')
                   let anu = await quotesAnime()
                   hasil = anu[Math.floor(Math.random() * anu.length)]
              /*     let buttons = [
@@ -2246,12 +2246,12 @@ if (args.length < 1) return reply('Type on to *Enable*\nType off to *Disable*')
 if (args[0] === 'on'){
 if (isLeveling) return reply(`Already activated`)
 _leveling.push(from)
-fs.writeFileSync('./database/leveling.json', JSON.stringify(_leveling))
+fs.writeFileSync('./KHADHERINC-DATABASE/leveling.json', JSON.stringify(_leveling))
 reply('Leveling activated')
 } else if (args[0] === 'off'){
 let anu = _leveling.indexOf(from)
 _leveling.splice(anu, 1)
-fs.writeFileSync('./database/leveling.json', JSON.stringify(_leveling))
+fs.writeFileSync('./KHADHERINC-DATABASE/leveling.json', JSON.stringify(_leveling))
 reply('Leveling deactivated')
 } 
 break;
@@ -2273,7 +2273,7 @@ if (!isAdmins && !isCreator) return reply(mess.useradmin)
 if (args[0] === "on") {
 if (AntiLink) return reply('Already activated')
 ntilink.push(from)
-fs.writeFileSync('./database/antilinkgc.json', JSON.stringify(ntlinkgc))
+fs.writeFileSync('./KHADHERINC-DATABASE/antilinkgc.json', JSON.stringify(ntlinkgc))
 reply('Activated _Antilink_ in this group.')
 var groupe = await A17.groupMetadata(from)
 var members = groupe['participants']
@@ -2286,7 +2286,7 @@ A17.sendMessage(from, {text: `\`\`\`「 Warning 」\`\`\`\n\nAntilink System Act
 if (!AntiLink) return reply('Already deactivated!')
 let off = ntilink.indexOf(from)
 ntilink.splice(off, 1)
-fs.writeFileSync('./database/antilinkgc.json', JSON.stringify(ntlinkgc))
+fs.writeFileSync('./KHADHERINC-DATABASE/antilinkgc.json', JSON.stringify(ntlinkgc))
 reply('Deactivated _Antilink_ in this group!')
 } else {
 let buttonsntilink = [
@@ -2308,7 +2308,7 @@ if (!isAdmins && !isCreator) return reply(mess.useradmin)
 if (args[0] === "on") {
 if (AntiLinkYoutubeVid) return reply('Already activated')
 ntilinkytvid.push(from)
-fs.writeFileSync('./database/antilinkytvideo.json', JSON.stringify(ntilinkytvid))
+fs.writeFileSync('./KHADHERINC-DATABASE/antilinkytvideo.json', JSON.stringify(ntilinkytvid))
 reply('Activated youtube video antilink !')
 var groupe = await A17.groupMetadata(from)
 var members = groupe['participants']
@@ -2321,7 +2321,7 @@ A17.sendMessage(from, {text: `\`\`\`「 Warning 」\`\`\`\n\nAntilink System Act
 if (!AntiLinkYoutubeVid) return reply('Already deactivated')
 let off = ntilinkytvid.indexOf(from)
 ntilinkytvid.splice(off, 1)
-fs.writeFileSync('./database/antilinkytvideo.json', JSON.stringify(ntilinkytvid))
+fs.writeFileSync('./KHADHERINC-DATABASE/antilinkytvideo.json', JSON.stringify(ntilinkytvid))
 reply('Deactivated youtube video antilink !')
 } else {
 let buttonsntilink = [
@@ -2343,7 +2343,7 @@ if (!isAdmins && !isCreator) return reply(mess.useradmin)
 if (args[0] === "on") {
 if (AntiLinkYoutubeChannel) return reply('Already activated')
 ntilinkytch.push(from)
-fs.writeFileSync('./database/antilinkytchannel.json', JSON.stringify(ntilinkytch))
+fs.writeFileSync('./KHADHERINC-DATABASE/antilinkytchannel.json', JSON.stringify(ntilinkytch))
 reply('Activated youtube channel antilink !')
 var groupe = await A17.groupMetadata(from)
 var members = groupe['participants']
@@ -2356,7 +2356,7 @@ A17.sendMessage(from, {text: `\`\`\`「 Warning 」\`\`\`\n\nAntilink System Act
 if (!AntiLinkYoutubeChannel) return reply('Already deactivated')
 let off = ntilinkytch.indexOf(from)
 ntilinkytch.splice(off, 1)
-fs.writeFileSync('./database/antilinkytchannel.json', JSON.stringify(ntilinkytch))
+fs.writeFileSync('./KHADHERINC-DATABASE/antilinkytchannel.json', JSON.stringify(ntilinkytch))
 reply('Deactivated youtube channel antilink !')
 } else {
 let buttonsntilink = [
@@ -2378,7 +2378,7 @@ if (!isAdmins && !isCreator) return reply(mess.useradmin)
 if (args[0] === "on") {
 if (AntiLinkInstagram) return reply('Already activated')
 ntilinkig.push(from)
-fs.writeFileSync('./database/antilinkinstagram.json', JSON.stringify(ntilinkig))
+fs.writeFileSync('./KHADHERINC-DATABASE/antilinkinstagram.json', JSON.stringify(ntilinkig))
 reply('Activated instagram antilink !')
 var groupe = await A17.groupMetadata(from)
 var members = groupe['participants']
@@ -2391,7 +2391,7 @@ A17.sendMessage(from, {text: `\`\`\`「 Warning 」\`\`\`\n\nAntilink System Act
 if (!AntiLinkInstagram) return reply('Already deactivated')
 let off = ntilinkig.indexOf(from)
 ntilinkig.splice(off, 1)
-fs.writeFileSync('./database/antilinkinstagram.json', JSON.stringify(ntilinkig))
+fs.writeFileSync('./KHADHERINC-DATABASE/antilinkinstagram.json', JSON.stringify(ntilinkig))
 reply('Deactivated instagram antilink !')
 } else {
 let buttonsntilink = [
@@ -2413,7 +2413,7 @@ if (!isAdmins && !isCreator) return reply(mess.useradmin)
 if (args[0] === "on") {
 if (AntiLinkFacebook) return reply('Already activated')
 ntilinkfb.push(from)
-fs.writeFileSync('./database/antilinkfacebook.json', JSON.stringify(ntilinkfb))
+fs.writeFileSync('./KHADHERINC-DATABASE/antilinkfacebook.json', JSON.stringify(ntilinkfb))
 reply('Activated facebook antilink !')
 var groupe = await A17.groupMetadata(from)
 var members = groupe['participants']
@@ -2426,7 +2426,7 @@ A17.sendMessage(from, {text: `\`\`\`「 Warning 」\`\`\`\n\nAntilink System Act
 if (!AntiLinkFacebook) return reply('Already deactivated')
 let off = ntilinkfb.indexOf(from)
 ntilinkfb.splice(off, 1)
-fs.writeFileSync('./database/antilinkfacebook.json', JSON.stringify(ntilinkfb))
+fs.writeFileSync('./KHADHERINC-DATABASE/antilinkfacebook.json', JSON.stringify(ntilinkfb))
 reply('Deactivated facebook antilink !')
 } else {
 let buttonsntilink = [
@@ -2448,7 +2448,7 @@ if (!isAdmins && !isCreator) return reply(mess.useradmin)
 if (args[0] === "on") {
 if (AntiLinkTelegram) return reply('Already activated')
 ntilinktg.push(from)
-fs.writeFileSync('./database/antilinktelegram.json', JSON.stringify(ntilinktg))
+fs.writeFileSync('./KHADHERINC-DATABASE/antilinktelegram.json', JSON.stringify(ntilinktg))
 reply('Activated telegram antilink !')
 var groupe = await A17.groupMetadata(from)
 var members = groupe['participants']
@@ -2461,7 +2461,7 @@ A17.sendMessage(from, {text: `\`\`\`「 Warning 」\`\`\`\n\nAntilink System Act
 if (!AntiLinkTelegram) return reply('Already deactivated')
 let off = ntilinkig.indexOf(from)
 ntilinkig.splice(off, 1)
-fs.writeFileSync('./database/antilinktelegram.json', JSON.stringify(ntilinktg))
+fs.writeFileSync('./KHADHERINC-DATABASE/antilinktelegram.json', JSON.stringify(ntilinktg))
 reply('Deactivated telegram antilink in this group')
 } else {
 let buttonsntilink = [
@@ -2483,7 +2483,7 @@ if (!isAdmins && !isCreator) return reply(mess.useradmin)
 if (args[0] === "on") {
 if (AntiLinkTiktok) return reply('Already activated')
 ntilinktt.push(from)
-fs.writeFileSync('./database/antilinktiktok.json', JSON.stringify(ntilinktt))
+fs.writeFileSync('./KHADHERINC-DATABASE/antilinktiktok.json', JSON.stringify(ntilinktt))
 reply('Activated tiktok antilink !')
 var groupe = await A17.groupMetadata(from)
 var members = groupe['participants']
@@ -2496,7 +2496,7 @@ A17.sendMessage(from, {text: `\`\`\`「 Warning 」\`\`\`\n\nAntilink System Act
 if (!AntiLinkTiktok) return reply('Already deactivated')
 let off = ntilinktt.indexOf(from)
 ntilinktt.splice(off, 1)
-fs.writeFileSync('./database/antilinktiktok.json', JSON.stringify(ntilinktt))
+fs.writeFileSync('./KHADHERINC-DATABASE/antilinktiktok.json', JSON.stringify(ntilinktt))
 reply('Deactivated tiktok antilink !')
 } else {
 let buttonsntilink = [
@@ -2518,7 +2518,7 @@ if (!isAdmins && !isCreator) return reply(mess.useradmin)
 if (args[0] === "on") {
 if (AntiLinkTwitter) return reply('Already activated')
 ntilinktwt.push(from)
-fs.writeFileSync('./database/antilinktwitter.json', JSON.stringify(ntilinktwt))
+fs.writeFileSync('./KHADHERINC-DATABASE/antilinktwitter.json', JSON.stringify(ntilinktwt))
 reply('Activated twitter antilink in this group !')
 var groupe = await A17.groupMetadata(from)
 var members = groupe['participants']
@@ -2531,7 +2531,7 @@ A17.sendMessage(from, {text: `\`\`\`「 Warning 」\`\`\`\n\nAntilink System Act
 if (!AntiLinkTwitter) return reply('Already deactivated')
 let off = ntilinktwt.indexOf(from)
 ntilinktwt.splice(off, 1)
-fs.writeFileSync('./database/antilinktwitter.json', JSON.stringify(ntilinktwt))
+fs.writeFileSync('./KHADHERINC-DATABASE/antilinktwitter.json', JSON.stringify(ntilinktwt))
 reply('Deactivated twitter antilink !')
 } else {
 let buttonsntilink = [
@@ -2589,7 +2589,7 @@ case 'antilinkall': {
   
     if (AntiLinkAll) return reply('Already activated');
     ntilinkall.push(from);
-    fs.writeFileSync('./database/antilinkall.json', JSON.stringify(ntilinkall))
+    fs.writeFileSync('./KHADHERINC-DATABASE/antilinkall.json', JSON.stringify(ntilinkall))
     reply('Enabled all antilink!');
     var groupe = await A17.groupMetadata(from);
     var members = groupe['participants'];
@@ -2602,7 +2602,7 @@ case 'antilinkall': {
     if (!AntiLinkAll) return reply('Already deactivated');
     let off = ntilinkall.indexOf(from);
     ntilinkall.splice(off, 1);
-    fs.writeFileSync('./database/antilinkall.json', JSON.stringify(ntilinkall))
+    fs.writeFileSync('./KHADHERINC-DATABASE/antilinkall.json', JSON.stringify(ntilinkall))
     reply('Disabled all antilink!');
   } else {
     reply(`Please use '${prefix}antilinkall on' to enable the Antilink system or '${prefix}antilinkall off' to disable it.`);
@@ -2620,7 +2620,7 @@ if (!isAdmins && !isCreator) return reply(mess.useradmin)
 if (args[0] === "on") {
 if (antiWame) return reply('Already activated')
 ntwame.push(from)
-fs.writeFileSync('./database/antiwame.json', JSON.stringify(ntwame))
+fs.writeFileSync('./KHADHERINC-DATABASE/antiwame.json', JSON.stringify(ntwame))
 reply('Activated antiwame !')
 var groupe = await A17.groupMetadata(from)
 var members = groupe['participants']
@@ -2633,7 +2633,7 @@ A17.sendMessage(from, {text: `\`\`\`*「  Warning  」*\`\`\`\n\nAntilink is ena
 if (!antiWame) return reply('Already deactivated')
 let off = nttoxic.indexOf(from)
 ntwame.splice(off, 1)
-fs.writeFileSync('./database/antiwame.json', JSON.stringify(ntwame))
+fs.writeFileSync('./KHADHERINC-DATABASE/antiwame.json', JSON.stringify(ntwame))
 reply('Deactivated antiwame !')
 } else {
 let buttonsntwame = [
@@ -3273,7 +3273,7 @@ case 'ringtone': {
   if (isBan) return reply(mess.banned);	 			
   if (isBanChat) return reply(mess.bangc);
           if (!args.join(" ")) return reply(`Example: ${prefix}ringtone black over`)
-      let { ringtone } = require('./lib/scraper')
+      let { ringtone } = require('./KHADHERINC/scraper')
   let anu = await ringtone(text)
   let result = anu[Math.floor(Math.random() * anu.length)]
   A17.sendMessage(m.chat, { audio: { url: result.audio }, fileName: result.title+'.mp3', mimetype: 'audio/mpeg' }, { quoted: m })
@@ -3425,7 +3425,7 @@ A17.sendMessage(from, { react: { text: "🪄" , key: m.key }})
 if (!m.quoted) return reply('reply Image')
 if (!/webp/.test(mime)) return reply(`reply sticker with caption *${prefix + command}*`)
 reply(mess.waiting)
-let { webp2mp4File } = require('./lib/uploader')
+let { webp2mp4File } = require('./KHADHERINC/uploader')
 let media = await A17.downloadAndSaveMediaMessage(quoted)
 let webpToMp4 = await webp2mp4File(media)
 await A17.sendMessage(m.chat, { video: { url: webpToMp4.result, caption: 'Here it is...' } }, { quoted: m })
@@ -3443,7 +3443,7 @@ if (!/video/.test(mime) && !/audio/.test(mime)) return reply(`Send/reply Video/A
 if (!m.quoted) return reply(`Send/reply Video/Audio You Want To Use As Audio With Caption ${prefix + command}`)
 reply(mess.waiting)
 let media = await quoted.download()
-let { toAudio } = require('./lib/converter')
+let { toAudio } = require('./KHADHERINC/converter')
 let audio = await toAudio(media, 'mp4')
 A17.sendMessage(m.chat, {audio: audio, mimetype: 'audio/mpeg'}, { quoted : m })
 }
@@ -3459,7 +3459,7 @@ if (!/video/.test(mime) && !/audio/.test(mime)) return reply(`Send/reply Video/A
 if (!m.quoted) return reply(`Send/reply Video/Audio You Want To Convert Into MP3 With Caption ${prefix + command}`)
 reply(mess.waiting)
 let media = await quoted.download()
-let { toAudio } = require('./lib/converter')
+let { toAudio } = require('./KHADHERINC/converter')
 let audio = await toAudio(media, 'mp4')
 A17.sendMessage(m.chat, {document: audio, mimetype: 'audio/mpeg', fileName: `Converted By ${global.BotName} (${m.id}).mp3`}, { quoted : m })
 }
@@ -3473,7 +3473,7 @@ A17.sendMessage(from, { react: { text: "🫡" , key: m.key }})
 if (!m.quoted) return reply('reply Image')
 if (!/webp/.test(mime)) return reply(`reply sticker with caption *${prefix + command}*`)
 reply(mess.wait)
-let { webp2mp4File } = require('./lib/uploader')
+let { webp2mp4File } = require('./KHADHERINC/uploader')
 let media = await A17.downloadAndSaveMediaMessage(quoted)
 let webpToMp4 = await webp2mp4File(media)
 await A17.sendMessage(m.chat, { video: { url: webpToMp4.result, caption: 'Converted From Webp To Gif' }, gifPlayback: true }, { quoted: m })
@@ -3487,7 +3487,7 @@ break;
 // if (isBanChat) return reply(mess.bangc);
 // A17.sendMessage(from, { react: { text: "🪄" , key: m.key }})
 
-// // let { UploadFileUgu, webp2mp4File, TelegraPh } = require('./lib/uploader');
+// // let { UploadFileUgu, webp2mp4File, TelegraPh } = require('./KHADHERINC/uploader');
 // let media = await A17.downloadAndSaveMediaMessage(quoted)
 // if (/image/.test(mime)) {
 // let anu = await TelegraPh(media)
@@ -3505,7 +3505,7 @@ case "url": case 'tolink':
    if (isBan) return reply(mess.banned);
    if (isBanChat) return reply(mess.bangc);
 
-let { GraphOrg } = require("./lib/uploader");
+let { GraphOrg } = require("./KHADHERINC/uploader");
   if (!m.quoted) {
    //
    A17.sendMessage(from, { react: { text: "❔" , key: m.key }})
@@ -3937,7 +3937,7 @@ A17.sendMessage(from, {text : `\nCovid India \n\nCase : ${cases}\n\nDead : ${dea
 break;
 
 
-// const { getBuffer } = require("./lib/myfunc");
+// const { getBuffer } = require("./KHADHERINC/myfunc");
 
 // case 'ss':
 //   async (A17, m, { pushName, prefix, args, text }) => {
@@ -4375,8 +4375,8 @@ case 'music': case 'p': case 'play': case 'song': case 'ytplay': {
     if (isBan) return reply(mess.banned);	 			
  if (isBanChat) return reply(mess.bangc);
  A17.sendMessage(from, { react: { text: "🍁" , key: m.key }}) 
- const YT=require('./lib/ytdlcore')
- const { isUrl, fetchBuffer } = require('./lib/Function')
+ const YT=require('./KHADHERINC/ytdlcore')
+ const { isUrl, fetchBuffer } = require('./KHADHERINC/Function')
 
  if(!text) return A17.sendMessage(from,{text:"Pls enter song name to play!"},{quoted:m})
  let yts = require("@adiwajshing/keyed-db2")
@@ -4420,7 +4420,7 @@ case 'music': case 'p': case 'play': case 'song': case 'ytplay': {
 //   if (isBan) return reply(mess.banned);	 			
 //   if (isBanChat) return reply(mess.bangc);
 //   A17.sendMessage(from, { react: { text: "🍁" , key: m.key }}) 
-//   const YT=require('./lib/ytdl-core')
+//   const YT=require('./KHADHERINC/ytdl-core')
 //   let yts = require("youtube-yts")
 //   let search = await yts(text)
 //   let anu = search.videos[0]
@@ -4438,7 +4438,7 @@ case 'music': {
   if (isBanChat) return reply(mess.bangc);
   A17.sendMessage(from, { react: { text: "🍁", key: m.key }});
 
-  const YT = require('./lib/ytdl-core');
+  const YT = require('./KHADHERINC/ytdl-core');
   const yts = require('youtube-yts');
   const ffmpeg = require('fluent-ffmpeg');
   
@@ -4487,7 +4487,7 @@ break;
   if (isBan) return reply(mess.banned);	 			
 if (isBanChat) return reply(mess.bangc);
 A17.sendMessage(from, { react: { text: "🍃" , key: m.key }})
-const YT=require('./lib/ytdl-core')
+const YT=require('./KHADHERINC/ytdl-core')
   let yts = require("youtube-yts")
   let search = await yts(text)
   let anu = search.videos[0]
@@ -4504,7 +4504,7 @@ case 'ytmp3': case 'ytmusic':  case 'ytmp4': case 'ytvideo': case 'ytdl':{
 if (isBanChat) return reply(mess.bangc);
 if (!args[0]) return reply(mess.nolink)
 
-const YT=require('./lib/ytdlcore')
+const YT=require('./KHADHERINC/ytdlcore')
 if(!text) return A17.sendMessage(from,{text:"Please provide a valid youtube link!"},{quoted:m})
 let yts = require("@adiwajshing/keyed-db2")
 let search = await yts(text)
@@ -4541,7 +4541,7 @@ case 'ytmp3': {
   if (isBanChat) return reply(mess.bangc);
   A17.sendMessage(from, { react: { text: "⌛" , key: m.key }})
 
-  const YT=require('./lib/ytdl-core')
+  const YT=require('./KHADHERINC/ytdl-core')
   const ytmp3play2 = await YT.mp3(text)
   
 await A17.sendMessage(from, {document: fs.readFileSync(ytmp3play2.path),fileName:'Xlicon_YTmp3_Downloader.mp3',mimetype: 'audio/mpeg',}, {quoted:m})
@@ -4553,7 +4553,7 @@ case 'ytvd2': case 'ytmp4': {
   if (isBan) return reply(mess.banned);	 			
 if (isBanChat) return reply(mess.bangc);
 A17.sendMessage(from, { react: { text: "🍁" , key: m.key }})
-const YT=require('./lib/ytdl-core')
+const YT=require('./KHADHERINC/ytdl-core')
   const ytmp4play2 = await YT.mp4(text)
 A17.sendMessage(from, {video:{url:ytmp4play2.videoUrl}, mimetype:"video/mp4", caption:'Downloaded by *ᴇʟʟɪᴇ*',}, {quoted:m})
 }
@@ -4684,7 +4684,7 @@ A17.sendMessage(from, { react: { text: "🫡" , key: m.key }})
 //   if (isBan) return reply(mess.banned);
 //   if (isBanChat) return reply(mess.bangc);
 //   if (!args.join(" ")) return reply(`${pushname} Pls provide a search term!`)
-// let { pinterest } = require('./lib/scraper')
+// let { pinterest } = require('./KHADHERINC/scraper')
 // anutrest = await pinterest(text)
 // result = anutrest[Math.floor(Math.random() * anutrest.length)]
 // A17.sendMessage(m.chat, { image: { url: result }, caption: '⭔ Media Url : '+result }, { quoted: m })
@@ -4701,7 +4701,7 @@ case 'pin': {
 
   if (!args.join(" ")) return reply(`${pushname} Please provide a search term!`);
  reply(mess.waiting)
-  let { pinterest } = require('./lib/scraper');
+  let { pinterest } = require('./KHADHERINC/scraper');
   let anutrest = await pinterest(text);
   let results = [];
 
@@ -4727,7 +4727,7 @@ break;
 
 //   if (!args.join(" ")) return reply(`${pushname} Please provide a search term!`);
 //   reply(mess.waiting);
-//   let { pinterest } = require('./lib/scraper');
+//   let { pinterest } = require('./KHADHERINC/scraper');
 //   let anutrest = await pinterest(text);
 //   let results = [];
 
@@ -4786,7 +4786,7 @@ case 'smeme': case 'stickermeme': case 'stickmeme': {
   if (isBanChat) return reply(mess.bangc);
   A17.sendMessage(from, { react: { text: "⌛" , key: m.key }})
 
-let { TelegraPh } = require('./lib/uploader')
+let { TelegraPh } = require('./KHADHERINC/uploader')
 if (!text) return reply(`Send/reply Photo With Caption ${prefix + command} *text*`)
 if (text.includes('|')) return reply(`Send/reply Photo With Caption ${prefix + command} *text*`)
 if (!/image/.test(mime)) return reply(`Send/reply Photo With Caption ${prefix + command} *text*`)
@@ -5181,7 +5181,7 @@ waifudd = await axios.get(`https://nekos.life/api/v2/img/fox_girl`)
       ] */
     let button12ssMessages = {
      image: {url:waifudd.data.url},
-     caption:  `Awoooo...`,
+     caption:  `Here it is.....`,
     /* footer: `${global.BotName}`,
     buttons: wbuttsss,
     headerType: 4 */
@@ -5713,12 +5713,12 @@ break;
     let btn = [{
     quickreplyButton: {
     displayText: '💡 Menu 💡',
-    id: '-menu'
+    id: '.menu'
     }  
     }, {
     quickreplyButton: {
     displayText: 'Bot Owner',
-    id: '-owner'
+    id: '.owner'
     }
     }]
     let txt = `「 *${global.OwnerName}'s Broadcast* 」\n\n${text}`
