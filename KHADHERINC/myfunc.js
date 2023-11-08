@@ -142,7 +142,7 @@ exports.formatDate = (n, locale = 'id') => {
 
 exports.tanggal = (numer) => {
     myMonths = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
-    myDays = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jum’at', 'Sabtu'];
+    myDays = ['sunday', 'monday', 'tuesday', 'wendnesday', 'thursday', 'friday', 'saturday'];
     var tgl = new Date(numer);
     var day = tgl.getDate()
     bulan = tgl.getMonth()
@@ -230,14 +230,14 @@ exports.parseMention = (text = '') => {
 exports.GIFBufferToVideoBuffer = async (image) => {
 
     const filename = `${Math.random().toString(36)}`
-    await fs.writeFileSync(`./system/${filename}.gif`, image)
+    await fs.writeFileSync(`./KHADHERINC-SYSYTEM/${filename}.gif`, image)
     child_process.exec(
-        `ffmpeg -i ./system/${filename}.gif -movflags faststart -pix_fmt yuv420p -vf "scale=trunc(iw/2)*2:trunc(ih/2)*2" ./system/${filename}.mp4`
+        `ffmpeg -i ./KHADHERINC-SYSYTEM/${filename}.gif -movflags faststart -pix_fmt yuv420p -vf "scale=trunc(iw/2)*2:trunc(ih/2)*2" ./KHADHERINC-SYSYTEM/${filename}.mp4`
     )
     await sleep(4000)
 
-    var buffer5 = await fs.readFileSync(`./system/${filename}.mp4`)
-    Promise.all([unlink(`./system/${filename}.mp4`), unlink(`./system/${filename}.gif`)])
+    var buffer5 = await fs.readFileSync(`./KHADHERINC-SYSYTEM/${filename}.mp4`)
+    Promise.all([unlink(`./KHADHERINC-SYSYTEM/${filename}.mp4`), unlink(`./KHADHERINC-SYSYTEM/${filename}.gif`)])
     return buffer5
 }
 
