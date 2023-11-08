@@ -19,7 +19,7 @@ exports.isLimit = function(sender, isPremium, isOwner, limitCount, _db){
     if (found === false) {
         const obj = { id: sender, limit: 0 }
         _db.push(obj)
-        fs.writeFileSync('./database/limit.json', JSON.stringify(_db))
+        fs.writeFileSync('./KHADHERINC-DATABASE/limit.json', JSON.stringify(_db))
         return false
     }
 }
@@ -32,7 +32,7 @@ exports.limitAdd = function(sender, _db){
 	})
 		if (found !== false) {
 			_db[found].limit += 1
-			fs.writeFileSync('./database/limit.json', JSON.stringify(_db))
+			fs.writeFileSync('./KHADHERINC-DATABASE/limit.json', JSON.stringify(_db))
 		}
 }
 exports.getLimit = function(sender, limitCount, _db){
@@ -57,7 +57,7 @@ exports.giveLimit = function(pemain, duit, _db){
     })
     if (position !== false) {
         _db[position].limit -= duit
-        fs.writeFileSync('./database/limit.json', JSON.stringify(_db))
+        fs.writeFileSync('./KHADHERINC-DATABASE/limit.json', JSON.stringify(_db))
     } else {
         const njt = duit - duit - duit
         const bulim = ({
@@ -65,7 +65,7 @@ exports.giveLimit = function(pemain, duit, _db){
             limit: njt
                 })
         _db.push(bulim)
-        fs.writeFileSync('./database/limit.json', JSON.stringify(_db))
+        fs.writeFileSync('./KHADHERINC-DATABASE/limit.json', JSON.stringify(_db))
     }
 }
 exports.addBalance = function(sender, duit, _db){
@@ -77,14 +77,14 @@ exports.addBalance = function(sender, duit, _db){
     })
     if (position !== false) {
         _db[position].balance += duit
-        fs.writeFileSync('./database/balance.json', JSON.stringify(_db))
+        fs.writeFileSync('./KHADHERINC-DATABASE/balance.json', JSON.stringify(_db))
     } else {
         const bulin = ({
             id: sender,
             balance: duit
                 })
         _db.push(bulin)
-        fs.writeFileSync('./database/balance.json', JSON.stringify(_db))
+        fs.writeFileSync('./KHADHERINC-DATABASE/balance.json', JSON.stringify(_db))
     }
 }
 exports.kurangBalance = function(sender, duit, _db){
@@ -96,7 +96,7 @@ exports.kurangBalance = function(sender, duit, _db){
     })
     if (position !== false) {
         _db[position].balance -= duit
-        fs.writeFileSync('./database/balance.json', JSON.stringify(_db))
+        fs.writeFileSync('./KHADHERINC-DATABASE/balance.json', JSON.stringify(_db))
     }
 }
 exports.getBalance = function(sender, _db){
@@ -130,7 +130,7 @@ exports.isGame = function(sender, isOwner, gcount, _db){
     if (found === false){
         let obj = {id: sender, glimit:0};
         _db.push(obj);
-        fs.writeFileSync('./database/glimit.json',JSON.stringify(_db));
+        fs.writeFileSync('./KHADHERINC-DATABASE/glimit.json',JSON.stringify(_db));
         return false;
     }
 }
@@ -143,7 +143,7 @@ exports.gameAdd = function(sender, _db){
     })
     if (found !== false) {
         _db[found].glimit += 1;
-        fs.writeFileSync('./database/glimit.json',JSON.stringify(_db));
+        fs.writeFileSync('./KHADHERINC-DATABASE/glimit.json',JSON.stringify(_db));
     }
 }
 exports.givegame = function(pemain, duit, _db){
@@ -155,7 +155,7 @@ exports.givegame = function(pemain, duit, _db){
     })
     if (position !== false) {
         _db[position].glimit -= duit
-        fs.writeFileSync('./database/glimit.json', JSON.stringify(_db))
+        fs.writeFileSync('./KHADHERINC-DATABASE/glimit.json', JSON.stringify(_db))
     } else {
         const njti = duit - duit - duit
         const bulimi = ({
@@ -163,7 +163,7 @@ exports.givegame = function(pemain, duit, _db){
             glimit: njti
                 })
         _db.push(bulimi)
-        fs.writeFileSync('./database/glimit.json', JSON.stringify(_db))
+        fs.writeFileSync('./KHADHERINC-DATABASE/glimit.json', JSON.stringify(_db))
     }
 }
 exports.cekGLimit = function(sender, gcount, _db){
@@ -182,7 +182,7 @@ exports.cekGLimit = function(sender, gcount, _db){
 exports.createHit = function(sender, _db){
     const anohoh = { id: sender, hit: 0}
     _db.push(anohoh);
-    fs.writeFileSync('./database/userhit.json',JSON.stringify(_db));''
+    fs.writeFileSync('./KHADHERINC-DATABASE/userhit.json',JSON.stringify(_db));''
 
 }
 exports.AddHit = function(sender, _db){
@@ -194,7 +194,7 @@ exports.AddHit = function(sender, _db){
     })
     if (found !== false) {
         _db[found].hit += 1;
-        fs.writeFileSync('./database/userhit.json',JSON.stringify(_db));
+        fs.writeFileSync('./KHADHERINC-DATABASE/userhit.json',JSON.stringify(_db));
     }
 }
 exports.gethitUser = function(sender, _db){
