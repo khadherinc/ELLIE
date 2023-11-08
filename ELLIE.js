@@ -152,7 +152,7 @@ global.db = new Low(
     ? new cloudDBAdapter(opts["db"])
     : /mongodb/.test(opts["db"])
       ? new mongoDB(opts["db"])
-      : new JSONFile(`src/database.json`)
+      : new JSONFile(`KHADHERINC-SOURCE/database.json`)
 );
 global.DATABASE = global.db; // Backwards Compatibility
 global.loadDatabase = async function loadDatabase() {
