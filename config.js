@@ -47,10 +47,10 @@ global.lolhuman = "KHADHER";
 
 
 //
-global.BotLogo = fs.readFileSync("./Assets/ttp.png");
-global.Thumb = fs.readFileSync("./Assets/ttp.png");
-global.Thumb1 = fs.readFileSync("./Assets/ttp.png");
-global.ErrorPic = fs.readFileSync("./Assets/ttp.png");
+global.BotLogo = fs.readFileSync("./KHADHERINC-MEDIA/ELLIEPIC.jpg");
+global.Thumb = fs.readFileSync("./KHADHERINC-MEDIA/ELLIEPIC.jpg");
+global.Thumb1 = fs.readFileSync("./KHADHERINC-MEDIA/ELLIEPIC.jpg");
+global.ErrorPic = fs.readFileSync("./KHADHERINC-MEDIA/ELLIEPIC.jpg");
 
 
 //
@@ -87,8 +87,7 @@ global.mess = {
     nolink: 'Please provide me *link*, Bro!',
     error: 'An error occurd!',
     banned: 'You are *Banned* fron using commands!',
-    bangc: 'This Group is *Banned* from using Commands!',
-    nonsfw: 'Dont be a pervert Bro! This is not a NSFW enabled group!'
+    bangc: 'This Group is *Banned* from using Commands!'
     
 }
 
