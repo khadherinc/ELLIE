@@ -776,9 +776,9 @@ if (responses.hasOwnProperty(smallinput)) {
     buttons: buttons,
     headerType: 4, */
     contextInfo:{externalAdreply:{
-    title:"Powered by Slasher",
+    title:"Powered by khadherinc",
     body: " ", 
-    thumbnail: fs.readFileSync("KHADHERINC-MEDIA/ELLIE.jpg"),
+    thumbnail: fs.readFileSync("./KHADHERINC-MEDIA/ELLIE.jpg"),
     mediaType:1,
     //mediaUrl: 'https://wallpapercave.com/wp/wp12002210.jpg',
     //sourceUrl: "https://wallpapercave.com/wp/wp12002210.jpg"
